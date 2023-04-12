@@ -72,4 +72,10 @@ public class CheckItemController {
         }
         return new Result(true,MessageConstant.EDIT_CHECKITEM_SUCCESS);
     }
+
+    @RequestMapping("/findPageAll")
+    public Result findPageAll(){
+        List<CheckItem> checkItems = checkItemService.queryAll();
+        return new Result(true,MessageConstant.QUERY_CHECKITEM_SUCCESS,checkItems);
+    }
 }

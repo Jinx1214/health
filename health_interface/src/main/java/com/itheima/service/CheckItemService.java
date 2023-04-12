@@ -19,4 +19,6 @@ public interface CheckItemService  {
     CheckItem selectCheckItemById(String id);
 
     void editById(CheckItem checkItem);
+
+    List<CheckItem> queryAll();
 }

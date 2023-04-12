@@ -243,7 +243,6 @@
                                 type: 'success'
                             })
                             //修改成功后,重新查询页面
-                            this.pagination.currentPage = 1
                             this.findPage();
                             this.resetForm();
                         }else {
@@ -311,6 +310,7 @@
                     this.dialogFormVisible4Edit = true
                     //通过id先获取检查项信息并通过v-model双向绑定到对话框中
                     axios.post("/CheckItem/selectById.do?id="+row.id).then((res)=>{
+                        console.log(res.data.data)
                         this.formData = res.data.data
                     })
                 },

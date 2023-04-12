@@ -18,11 +18,14 @@
     <delete id="deleteById" parameterType="String">
         delete from t_checkitem where id = #{id}
     </delete>
-    <select id="selectCheckItemById" parameterType="String">
+    <select id="selectCheckItemById" parameterType="String" resultType="com.itheima.pojo.CheckItem">
         select * from t_checkitem where id=#{id}
     </select>
     <update id="editById" parameterType="com.itheima.pojo.CheckItem">
         update t_checkitem set code = #{code} ,name = #{name},sex=#{sex},age=#{age},price=#{price},type=#{type},remark=#{remark},
                                attention=#{attention} where id = #{id}
     </update>
+    <select id="queryAll" resultType="com.itheima.pojo.CheckItem">
+        select * from t_checkitem
+    </select>
 </mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.itheima.dao.CheckGroupDao">
+    <!--使用useGeneratedKeys属性可以将对象插入后,将数据库自增的id返回赋予keyProperty所指向的属性.此时插入成功后可以直接通过javabean获取自增后的id-->
+    <insert id="addCheckGroup" useGeneratedKeys="true" keyProperty="id">
+        insert into t_checkgroup (code,name,helpCode,sex,remark,attention) values (#{code},#{name},#{helpCode},#{sex},#{remark},#{attention})
+    </insert>
+
+    <select id="queryList" resultType="com.itheima.pojo.CheckGroup">
+        select *
+        from t_checkgroup
+        <where>
+            <if test="value != null and value.length >0">
+                (code = #{value} or name = #{values} or helpCode = #{value})
+            </if>
+        </where>
+    </select>
+    <select id="queryCheckGroup" resultType="com.itheima.pojo.CheckGroup">
+        select * from t_checkgroup where  id = #{id}
+    </select>
+    <update id="updateCheckGroup">
+        update t_checkgroup set code=#{code},name=#{name},helpCode=#{helpCode},sex=#{sex},remark=#{remark},attention=#{attention} where id=#{id}
+    </update>
+
+    <delete id="deleteGroup">
+        delete from t_checkgroup where id = #{id}
+    </delete>
+
+</mapper>

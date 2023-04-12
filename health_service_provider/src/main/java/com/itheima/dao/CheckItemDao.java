@@ -20,4 +20,6 @@ public interface CheckItemDao {
     CheckItem selectCheckItemById(String id);
 
     void editById(CheckItem checkItem);
+
+    List<CheckItem> queryAll();
 }

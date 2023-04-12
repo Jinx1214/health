@@ -11,6 +11,8 @@ import com.itheima.service.CheckItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service(interfaceClass = CheckItemService.class)
 @Transactional
 public class CheckItemServiceImpl implements CheckItemService {
@@ -45,5 +47,10 @@ public class CheckItemServiceImpl implements CheckItemService {
     @Override
     public void editById(CheckItem checkItem) {
         checkItemDao.editById(checkItem);
+    }
+
+    @Override
+    public List<CheckItem> queryAll() {
+        return checkItemDao.queryAll();
     }
 }

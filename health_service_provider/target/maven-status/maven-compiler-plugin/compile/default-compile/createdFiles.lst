@@ -1,2 +1,6 @@
-com\itheima\service\impl\CheckItemServiceImpl.class
+com\itheima\dao\CheckGroupDao.class
+com\itheima\service\impl\CheckGroupServiceImpl.class
 com\itheima\dao\CheckItemDao.class
+com\itheima\service\impl\CheckGroupAndCheckItemServiceImpl.class
+com\itheima\dao\CheckGroupAndCheckItemDao.class
+com\itheima\service\impl\CheckItemServiceImpl.class
