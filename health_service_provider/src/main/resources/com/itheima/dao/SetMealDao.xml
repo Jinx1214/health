@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.itheima.dao.SetMealDao">
+    <insert id="addSetMeal" parameterType="com.itheima.pojo.Setmeal" useGeneratedKeys="true" keyProperty="id">
+        insert into t_setmeal(name, code, helpCode, sex, age, price, remark, attention, img)
+        values (#{name}, #{code}, #{helpCode}, #{sex}, #{age}, #{price}, #{remark}, #{attention}, #{img})
+    </insert>
+    <select id="findPage" resultType="com.itheima.pojo.Setmeal">
+        select * from
+             t_setmeal
+        <where>
+            <if test="queryString != null and queryString.length>0">
+                (code like concat("%",#{queryString},"%") or helpCode like concat("%",#{queryString},"%") or name
+                like concat("%",#{queryString},"%"))
+            </if>
+        </where>
+    </select>
+    <delete id="deleteSetMeal">
+        delete from t_setmeal where id = #{id}
+    </delete>
+
+    <update id="updateSetMeal">
+        update t_setmeal set name = #{name},code=#{code},helpCode = #{helpCode},sex = #{sex},
+                             age= #{age},price=#{price},remark=#{remark},attention=#{attention},img=#{img}
+                    where id = #{id}
+    </update>
+    <select id="findById" resultType="com.itheima.pojo.Setmeal">
+        select * from t_setmeal where id = #{id}
+    </select>
+
+</mapper>

@@ -291,21 +291,35 @@
                 },
                 // 删除
                 handleDelete(row) {
-                    axios.post("/CheckGroup/deleteGroup.do",row.id).then((res)=>{
-                        if(res.data.flag){
-                            this.$message({
-                                message: res.data.message,
-                                type: "success"
-                            })
-                            //刷新页面并且查找所有的检查组
-                            this.findPage();
-                        }else {
-                            this.$message({
-                                message: res.data.message,
-                                type: "error"
-                            })
-                        }
-                    })
+                    //删除提示
+                    this.$confirm('此操作将永久删除该检查组, 是否继续?', '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'warning'
+                    }).then(() => {
+                        //通过id进行删除
+                        axios.get("/CheckGroup/deleteGroup.do?id="+row.id).then((res)=>{
+                            if(res.data.flag){
+                                this.$message({
+                                    message: res.data.message,
+                                    type: "success"
+                                })
+                                //刷新页面并且查找所有的检查组
+                                this.findPage();
+                            }else {
+                                this.$message({
+                                    message: res.data.message,
+                                    type: "error"
+                                })
+                            }
+                        })
+                    }).catch(() => {
+                        this.$message({
+                            type: 'info',
+                            message: '已取消删除'
+                        });
+                    });
+
                 },
                 //统一查询方法
                 queryAllCheckItem(){

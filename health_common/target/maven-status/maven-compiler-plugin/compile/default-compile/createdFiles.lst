@@ -1,13 +1,16 @@
 com\itheima\pojo\Role.class
+com\itheima\utilities\TimeUtils.class
 com\itheima\pojo\CheckItem.class
 com\itheima\pojo\User.class
 com\itheima\pojo\OrderSetting.class
 com\itheima\pojo\Setmeal.class
 com\itheima\pojo\Permission.class
 com\itheima\entity\PageResult.class
+com\itheima\utilities\QiNiuYunConfig.class
 com\itheima\entity\Result.class
 com\itheima\pojo\CheckGroup.class
 com\itheima\constant\MessageConstant.class
+com\itheima\utilities\POIUtils.class
 com\itheima\pojo\Member.class
 com\itheima\pojo\Order.class
 com\itheima\entity\QueryPageBean.class

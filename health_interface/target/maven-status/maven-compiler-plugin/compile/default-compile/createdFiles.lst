@@ -1,3 +1,6 @@
-com\itheima\service\CheckGroupService.class
 com\itheima\service\CheckGroupAndCheckItemService.class
+com\itheima\service\OrderSettingService.class
+com\itheima\service\SetMealAndGroupService.class
+com\itheima\service\SetMealService.class
+com\itheima\service\CheckGroupService.class
 com\itheima\service\CheckItemService.class

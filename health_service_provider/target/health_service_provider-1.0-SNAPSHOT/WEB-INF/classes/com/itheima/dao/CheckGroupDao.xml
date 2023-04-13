@@ -12,7 +12,7 @@
         from t_checkgroup
         <where>
             <if test="value != null and value.length >0">
-                (code = #{value} or name = #{values} or helpCode = #{value})
+                (code like concat("%",#{value},"%") or name like concat("%",#{value},"%") or helpCode like concat("%",#{value},"%"))
             </if>
         </where>
     </select>
@@ -26,5 +26,8 @@
     <delete id="deleteGroup">
         delete from t_checkgroup where id = #{id}
     </delete>
+    <select id="findAll" resultType="com.itheima.pojo.CheckGroup">
+        select * from t_checkgroup
+    </select>
 
 </mapper>

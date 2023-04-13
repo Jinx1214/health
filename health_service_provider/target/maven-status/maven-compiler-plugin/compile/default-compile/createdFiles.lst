@@ -2,5 +2,11 @@ com\itheima\dao\CheckGroupDao.class
 com\itheima\service\impl\CheckGroupServiceImpl.class
 com\itheima\dao\CheckItemDao.class
 com\itheima\service\impl\CheckGroupAndCheckItemServiceImpl.class
+com\itheima\service\impl\SetMealServiceImpl.class
+com\itheima\service\impl\OrderSettingServiceImpl.class
 com\itheima\dao\CheckGroupAndCheckItemDao.class
+com\itheima\dao\SetMealDao.class
+com\itheima\service\impl\SetMealAndGroupServiceImpl.class
+com\itheima\dao\SetMealAndGroupDao.class
 com\itheima\service\impl\CheckItemServiceImpl.class
+com\itheima\dao\OrderSettingDao.class

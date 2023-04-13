@@ -11,6 +11,8 @@ import com.itheima.service.CheckGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service(interfaceClass = CheckGroupService.class)
 @Transactional
 public class CheckGroupServiceImpl implements CheckGroupService {
@@ -50,5 +52,11 @@ public class CheckGroupServiceImpl implements CheckGroupService {
     @Override
     public void deleteGroup(Integer id) {
         checkGroupDao.deleteGroup(id);
+    }
+
+    @Override
+    public List<CheckGroup> findAll() {
+        List<CheckGroup> data = checkGroupDao.findAll();
+        return data;
     }
 }

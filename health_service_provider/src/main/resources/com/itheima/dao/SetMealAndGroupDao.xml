@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.itheima.dao.SetMealAndGroupDao">
+
+    <insert id="addSetMealAndGroup">
+        insert into t_setmeal_checkgroup (setmeal_id,checkgroup_id) values
+
+            /*进行动态sql标签的使用时 判断处的 ids 或者遍历处的ids 都为我们接口定义处的@param中设置的名*/
+        <if test="ids != null and ids.length>0">
+            <foreach collection="ids" separator="," item="ids">
+                (#{id},#{ids})
+            </foreach>
+        </if>
+    </insert>
+    <delete id="delete">
+        delete from t_setmeal_checkgroup where setmeal_id = #{id}
+    </delete>
+
+    <select id="getGroup" resultType="com.itheima.pojo.CheckGroup">
+        select * from t_checkgroup where id in (
+            select t_setmeal_checkgroup.checkgroup_id from t_setmeal_checkgroup where t_setmeal_checkgroup.setmeal_id = #{id}
+        )
+    </select>
+
+</mapper>
